@@ -1,0 +1,44 @@
+{% extends "stock/base.html" %}	
+{% load staticfiles %}
+
+{% block head %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}Régie Tool !!!{% endblock %}</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="{% static 'stock/style.css' %}" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src"http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+	<script type='text/javascript'>
+	$(document).ready(function(){
+		$('#home-logo').click(function(){
+			document.location.href='/stock/';
+		})
+		
+	});
+	</script>
+{% endblock %}
+
+{% block header %}
+	{% if matos %}
+		<div>
+			<img id='home-logo' src="{% static 'stock/back.png' %}" alt="Home" />
+		</div>
+			<center id="nom-matos">{{matos.nom}}</center>
+		<div>
+			{% if matos.image %}
+				<img id='img-matos' src="{{ matos.image.url }}" alt="{{ matos.nom }}" width="90" />
+			{% endif %}
+		</div>
+	{% endif %}
+{% endblock %}
+
+
+
+{% block section1 %}
+<p> Son !!! </p>
+
+{% endblock %}

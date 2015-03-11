@@ -1,0 +1,77 @@
+@font-face {
+font-family: 'gooddogregular';
+src: url('font/GoodDog-webfont.eot');
+src: url('font/GoodDog-webfont.eot?#iefix') format('embedded-opentype'),
+     url('font/GoodDog-webfont.woff') format('woff'),
+     url('font/GoodDog-webfont.ttf') format('truetype'),
+     url('font/GoodDog-webfont.svg#gooddogregular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+header {
+    
+    font-family: 'gooddogregular', Arial, Verdana;
+    font-size: 1.8em; 
+}
+
+#home-logo {
+    width:0.9em;
+    margin-top:0.2em;
+    cursor: pointer;
+    float: left;
+}
+#nom-matos {
+    vertical-align: text-top;
+    margin-left: 0.4em;
+}
+
+nav {
+    margin-top: 0.5em;
+}
+
+#search {
+	width:99%;
+	height:1.6em;
+    border: solid 1px #CCCCCC;
+    border-radius: 0.25em;
+    text-align: center;
+} 
+
+#select_form {
+    margin-top:0.3em;
+}
+
+select {
+    width: 49%;    
+}
+
+
+#selectable .ui-selecting { background: #FECA40; }
+
+#selectable .ui-selected { background: #F39814; color: white; }
+
+#selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; cursor: pointer;}
+
+#selectable li { margin: 3px; padding: 0.4em; font-size: 1.2em; height: 16px; text-align: center}
+
+ul { 
+ list-style:none;
+ margin:0;
+ padding:0;
+}
+ul li{
+ padding-left:150px; 
+}
+ul li label{
+ float: left; 
+ margin-left: -150px; 
+ width: 140px; 
+ text-align:right;
+}
+.ui-accordion .ui-accordion-content {
+    padding: 2em 1em;
+    border-top: 0;
+    overflow: auto;
+    font-size: 0.9em;
+}

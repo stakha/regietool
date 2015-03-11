@@ -1,0 +1,83 @@
+{% extends "stock/base.html" %}	
+{% load staticfiles %}
+
+{% block head %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}Régie Tool !!!{% endblock %}</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="{% static 'stock/style.css' %}" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src"http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+	<script type='text/javascript'>
+	$(document).ready(function(){
+		$('#home-logo').click(function(){
+			document.location.href='/stock/';
+		});
+		$('#accordion').accordion({
+
+		});
+		
+	});
+	</script>
+{% endblock %}
+
+{% block header %}
+	{% if matos %}
+		<div>
+			<img id='home-logo' src="{% static 'stock/back.png' %}" alt="Home" />
+		</div>
+		<center id="nom-matos">{{matos.nom}}</center>
+		
+	{% endif %}
+{% endblock %}
+
+{% block section1 %}
+	{% if matos %}
+		
+		<div id="accordion">
+			
+			<h3>Général</h3>
+				<div>
+
+				<ul class="fiche" id="fiche_matos">
+   					<li>
+    					<label for="type_proj">Type :</label>
+    					<span name="marque" id="marque"/>{{matos.get_type_proj_display}}</span>
+   					</li>
+   					<li>
+    					<label for="puissance_proj">Puissance :</label>
+    					<span name="puissance_proj" id="puissance_proj"/>{{matos.puissance_proj}} watts</span>
+   					</li>
+   					<li>
+    					<label for="marque">Marque :</label>
+    					<span name="marque" id="marque"/>{{matos.marque}}</span>
+   					</li>
+   					<li>
+    					<label for="model">Modèle :</label>
+    					<span name="model" id="model"/>{{matos.model}}</span>
+   					</li>
+   				</ul>	
+				</div>
+			<h3>Détails</h3>
+				<div>
+					<p>
+						{{matos.details|linebreaks}}
+					</p>
+				</div>
+			<h3>Photo</h3>
+				<div>
+					{% if matos.image %}
+						<img id='img-matos' src="{{ matos.image.url }}" alt="{{ matos.nom }}" />
+					{% endif %}
+				</div>
+		</div>
+
+	{% endif %}
+
+
+
+{% endblock %}

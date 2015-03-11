@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        {% block head %}
+
+        {% endblock %}
+    </head>
+  
+
+    <body>       
+        <header>
+        {% block header %}
+            <h3>Gestion du parc matériel</h3> 
+        {% endblock %}           
+        </header>
+        
+        <nav>
+        {% block nav %}
+        {% endblock %}   
+        </nav>                 
+            
+        <section id='section1'>
+        {% block section1 %}
+        {% endblock %}
+        </section>
+        
+        <section id='section2'>
+        {% block section2 %}
+        {% endblock %}
+        </section>
+        
+        
+            
+    </body>
+</html>

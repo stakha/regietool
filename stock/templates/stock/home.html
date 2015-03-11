@@ -1,0 +1,62 @@
+{% extends "stock/base.html" %}	
+{% load staticfiles %}	
+
+{% block head %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}Régie Tool !!!{% endblock %}</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="{% static 'stock/style.css' %}" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src"http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+	<script src="{% static 'stock/jquery.hideseek.min.js' %}"></script>
+
+	<script type='text/javascript'> /* JQuery plugins */
+	$(document).ready(function(){
+		$('#search').hideseek({  
+		});
+		$( "#id_categorie" ).selectmenu({
+			change: function() {
+				document.forms[0].submit()}
+		});
+		$( "#id_sous_categorie" ).selectmenu({
+			change: function() {
+				document.forms[0].submit()
+		}});
+		$( "#selectable" ).selectable({
+           	selected: function(){
+           		var href = $('.ui-selected + a').attr('href');
+           		document.location.href=href;
+           	}
+    	});			
+	});
+	</script>
+{% endblock %}
+
+{% block header %}
+    <center id="text-accueil" class="ui-widget-header">Salut !</center>
+{% endblock %}
+
+{% block nav %}
+<section>
+<input id="search" name="search" placeholder="Recherche..." type="text" data-list="#selectable">
+
+<form action="/stock/" id="select_form" method="POST">
+	{% csrf_token %}
+		{{ form.categorie }}
+		{{ form.sous_categorie }}
+</form>
+</section>
+{% endblock %}
+
+{% block section1 %}
+<ol id="selectable">
+	{% for matos in list_matos %}
+		<li class="ui-widget-content matos-item">{{matos.nom}}</li>
+		<a class="items_list" href ='/stock/{{matos.id}}/'></a>
+	{% endfor %}
+</ol>
+{% endblock %}
+

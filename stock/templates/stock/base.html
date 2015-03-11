@@ -1,0 +1,38 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+
+        {% block head %}
+            <link rel="stylesheet" href="{% static 'stock/style.css' %}" />
+        {% endblock %}
+    </head>
+  
+    <body class="ui-widget">       
+        <header>
+        {% block header %}
+
+        {% endblock %}           
+        </header>
+        
+        <nav >
+        {% block nav %}
+            
+        {% endblock %}   
+        </nav>                 
+            
+        <section id='section1'>
+        {% block section1 %}
+        {% endblock %}
+        </section>
+        
+        <section id='section2'>
+        {% block section2 %}
+        {% endblock %}
+        </section>
+        
+    </body>
+</html>
